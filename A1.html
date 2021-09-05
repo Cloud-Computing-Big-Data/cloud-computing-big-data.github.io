@@ -5787,7 +5787,7 @@
     </table>
     <h3 class="code-line" data-line-start=93 data-line-end=94><a id="Comments_93"></a>Comments</h3>
     <p class="has-line-data" data-line-start="95" data-line-end="96">Ignore records which do not satisfy the mentioned
-        conditions. You do not require any command line arguments for this task.</p>
+        conditions. You do not require any command line arguments for this task. Additionally, if any of the required attributes contain <code>NaN</code>, ignore the record.</p>
     <p class="has-line-data" data-line-start="97" data-line-end="99">Recommended module:<br>
         <code>datetime</code>
     </p>
@@ -5796,17 +5796,16 @@
         satisfies the provided conditions, print the hour followed by the number of accidents in that hour on a separate
         line. For hours that do not contain any accident records, do not print anything.</p>
     <p class="has-line-data" data-line-start="102" data-line-end="103">Example,</p>
-    <pre><code class="has-line-data" data-line-start="104" data-line-end="117" class="language-txt">2 1
-3 1
-4 1
-5 5
-6 4
-7 1
-18 1
-19 3
-20 1
-21 3
-22 1
+    <pre><code class="has-line-data" data-line-start="104" data-line-end="117" class="language-txt">3 1	
+4 1	
+5 4	
+6 4	
+7 1	
+18 1	
+19 2	
+20 1	
+21 3	
+22 1	
 23 1
 </code></pre>
     <h2 class="code-line" data-line-start=118 data-line-end=119><a id="Task_2_118"></a>Task 2</h2>
@@ -5835,7 +5834,7 @@
 </code></pre>
     <h3 class="code-line" data-line-start=145 data-line-end=146><a id="Comments_145"></a>Comments</h3>
     <p class="has-line-data" data-line-start="147" data-line-end="148">Ignore records which do not satisfy the required
-        distance condition. Do not round off any numerical values as this may lead to erroneous results.</p>
+        distance condition. Do not round off any numerical values as this may lead to erroneous results. Additionally, if any of the required attributes contain <code>NaN</code>, ignore the record.</p>
     <p class="has-line-data" data-line-start="149" data-line-end="150">You are required to take in 3 command line
         arguments in your <code>mapper.py</code> script in the format given below.</p>
     <p class="has-line-data" data-line-start="151" data-line-end="152"><code>LATITUDE</code> <code>LONGITUDE</code>
@@ -5852,48 +5851,48 @@
         city in that state, and display each city’s count on a separate line. You do not have to display cities where
         the count is zero. Finally, display the state again and the total number of accidents for that entire state.</p>
     <p class="has-line-data" data-line-start="163" data-line-end="167">Example,<br>
-        <code>D</code> = <code>5.3</code><br>
         <code>LATITUDE</code> = <code>40</code><br>
-        <code>LONGITUDE</code> = <code>-66</code>
+        <code>LONGITUDE</code> = <code>-66</code><br>
+        <code>D</code> = <code>5.3</code>
     </p>
     <p class="has-line-data" data-line-start="168" data-line-end="169">Taking the last state <code>ME</code> as an
         example, the counts for the cities Ellsworth, Hope and Trenton are determined to be <code>3</code>,
         <code>1</code> and <code>1</code> respectively. Hence, the total count for the state is <code>5</code>.</p>
-    <pre><code class="has-line-data" data-line-start="171" data-line-end="208" class="language-txt">MA
-Brewster 1
-Buzzards Bay 1
-Carver 2
-Cotuit 1
-Duxbury 13
-East Falmouth 2
-East Freetown 1
-East Sandwich 1
-East Wareham 1
-Eastham 1
-Halifax 7
-Hyannis 4
-Kingston 1
-Mashpee 4
-Middleboro 1
-New Bedford 3
-North Dartmouth 2
-Orleans 1
-Osterville 1
-Plymouth 4
-Plympton 2
-Rochester 1
-Sandwich 2
-South Dennis 2
-Teaticket 1
-Truro 2
-Wareham 3
-West Barnstable 1
-West Wareham 1
-MA 67
-ME
-Ellsworth 3
-Hope 1
-Trenton 1
+    <pre><code class="has-line-data" data-line-start="171" data-line-end="208" class="language-txt">MA	
+Brewster 1	
+Buzzards Bay 1	
+Carver 2	
+Cotuit 1	
+Duxbury 13	
+East Falmouth 2	
+East Freetown 1	
+East Sandwich 1	
+East Wareham 1	
+Eastham 1	
+Halifax 7	
+Hyannis 4	
+Kingston 1	
+Mashpee 4	
+Middleboro 1	
+New Bedford 3	
+North Dartmouth 2	
+Orleans 1	
+Osterville 1	
+Plymouth 4	
+Plympton 2	
+Rochester 1	
+Sandwich 2	
+South Dennis 2	
+Teaticket 1	
+Truro 2	
+Wareham 3	
+West Barnstable 1	
+West Wareham 1	
+MA 67	
+ME	
+Ellsworth 3	
+Hope 1	
+Trenton 1	
 ME 5
 </code></pre>
     <h1 class="code-line" data-line-start=209 data-line-end=210><a id="Helpful_Commands_209"></a>Helpful Commands</h1>
