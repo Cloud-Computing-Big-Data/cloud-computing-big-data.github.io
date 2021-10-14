@@ -5741,12 +5741,14 @@
     <h3 class="code-line" data-line-start=102 data-line-end=103><a id="Output_Format_102"></a>Output Format</h3>
     <p class="has-line-data" data-line-start="104" data-line-end="105">Display each node in the network along with its
         adjacent nodes. The output from the reducer <em>may</em> look like the following. The separator between the
-        <code>from_node_id</code> and <code>list_of_adj_nodes</code> is up to your choice of implementation.</p>
+        <code>from_node_id</code> and <code>list_of_adj_nodes</code> is up to your choice of implementation. The output
+        should be sorted in <strong>lexicographical</strong> order of <code>from_node_id</code>.</p>
     <pre><code class="has-line-data" data-line-start="106" data-line-end="108" class="language-txt">from_node_id    list_of_adj_nodes
 </code></pre>
     <p class="has-line-data" data-line-start="109" data-line-end="110">These initial page ranks should be written
         locally to a new file called <code>v</code> (<strong>to be strictly followed</strong>). The values are comma
-        separated and newline delimited.</p>
+        separated and newline delimited. The output should be sorted in <strong>lexicographical</strong> order of
+        <code>node</code>.</p>
     <pre><code class="has-line-data" data-line-start="112" data-line-end="114" class="language-txt">node,pagerank
 </code></pre>
     <h4 class="code-line" data-line-start=115 data-line-end=116><a id="Example_115"></a>Example</h4>
@@ -6408,7 +6410,8 @@
         file. The input to the mapper is the <code>adjacency list</code> generated from the previous task.</p>
     <h3 class="code-line" data-line-start=186 data-line-end=187><a id="Output_Format_186"></a>Output Format</h3>
     <p class="has-line-data" data-line-start="188" data-line-end="189">For each page in the network, display the page’s
-        ID along with its updated page rank on a single line. The values are comma separated and newline delimited.</p>
+        ID along with its updated page rank on a single line. The values are comma separated and newline delimited. The
+        output should be sorted in <strong>lexicographical</strong> order of <code>node</code>.</p>
     <pre><code class="has-line-data" data-line-start="191" data-line-end="193" class="language-txt">node,pagerank
 </code></pre>
     <h4 class="code-line" data-line-start=194 data-line-end=195><a id="Example_194"></a>Example</h4>
