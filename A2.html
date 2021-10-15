@@ -5919,7 +5919,10 @@
                                         <mi>R</mi>
                                         <mi>a</mi>
                                         <mi>n</mi>
-                                        <mi>k</mi>
+                                        <msup>
+                                            <mi>k</mi>
+                                            <mo mathvariant="normal">′</mo>
+                                        </msup>
                                         <mo>(</mo>
                                         <mi>p</mi>
                                         <mo>)</mo>
@@ -5977,12 +5980,12 @@
                                     </mrow>
                                 </mfrac>
                             </mrow>
-                            <annotation encoding="application/x-tex">Contribution(p, q) = \frac{Rank(p)\ .\
+                            <annotation encoding="application/x-tex">Contribution(p, q) = \frac{Rank&#x27;(p)\ .\
                                 Similarity(p, q)}{Number\ of\ outgoing\ links\ from\ p}</annotation>
                         </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
-                        style="height:1.01em;"></span><span class="strut bottom"
-                        style="height:1.491108em;vertical-align:-0.481108em;"></span><span class="base"><span
+                        style="height:1.06448em;"></span><span class="strut bottom"
+                        style="height:1.545588em;vertical-align:-0.481108em;"></span><span class="base"><span
                             class="mord mathit" style="margin-right:0.07153em;">C</span><span
                             class="mord mathit">o</span><span class="mord mathit">n</span><span
                             class="mord mathit">t</span><span class="mord mathit"
@@ -5998,7 +6001,7 @@
                             class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span
                                 class="mopen nulldelimiter"></span><span class="mfrac"><span
                                     class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
-                                            style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span
+                                            style="height:1.06448em;"><span style="top:-2.6550000000000002em;"><span
                                                     class="pstrut" style="height:3em;"></span><span
                                                     class="sizing reset-size6 size3 mtight"><span
                                                         class="mord mtight"><span class="mord mathit mtight"
@@ -6058,8 +6061,17 @@
                                                             style="margin-right:0.00773em;">R</span><span
                                                             class="mord mathit mtight">a</span><span
                                                             class="mord mathit mtight">n</span><span
-                                                            class="mord mathit mtight"
-                                                            style="margin-right:0.03148em;">k</span><span
+                                                            class="mord mtight"><span class="mord mathit mtight"
+                                                                style="margin-right:0.03148em;">k</span><span
+                                                                class="msupsub"><span class="vlist-t"><span
+                                                                        class="vlist-r"><span class="vlist"
+                                                                            style="height:0.8278285714285715em;"><span
+                                                                                style="top:-2.931em;margin-right:0.07142857142857144em;"><span
+                                                                                    class="pstrut"
+                                                                                    style="height:2.5em;"></span><span
+                                                                                    class="sizing reset-size3 size1 mtight"><span
+                                                                                        class="mord mtight"><span
+                                                                                            class="mord mtight">′</span></span></span></span></span></span></span></span></span><span
                                                             class="mopen mtight">(</span><span
                                                             class="mord mathit mtight">p</span><span
                                                             class="mclose mtight">)</span><span
@@ -6091,8 +6103,39 @@
                                             class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist"
                                             style="height:0.481108em;"></span></span></span></span><span
                                 class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-    <p class="has-line-data" data-line-start="161" data-line-end="162">where <code>p</code> is a node pointing to
-        <code>q</code> and</p>
+    <p class="has-line-data" data-line-start="161" data-line-end="162">where <span class="math inline"><span
+                class="katex"><span class="katex-mathml"><math>
+                        <semantics>
+                            <mrow>
+                                <mi>R</mi>
+                                <mi>a</mi>
+                                <mi>n</mi>
+                                <msup>
+                                    <mi>k</mi>
+                                    <mo mathvariant="normal">′</mo>
+                                </msup>
+                                <mo>(</mo>
+                                <mi>p</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            <annotation encoding="application/x-tex">Rank&#x27;(p)</annotation>
+                        </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut"
+                        style="height:0.751892em;"></span><span class="strut bottom"
+                        style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span
+                            class="mord mathit" style="margin-right:0.00773em;">R</span><span
+                            class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord"><span
+                                class="mord mathit" style="margin-right:0.03148em;">k</span><span class="msupsub"><span
+                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                            style="height:0.751892em;"><span
+                                                style="top:-3.063em;margin-right:0.05em;"><span class="pstrut"
+                                                    style="height:2.7em;"></span><span
+                                                    class="sizing reset-size6 size3 mtight"><span
+                                                        class="mord mtight"><span
+                                                            class="mord mtight">′</span></span></span></span></span></span></span></span></span><span
+                            class="mopen">(</span><span class="mord mathit">p</span><span
+                            class="mclose">)</span></span></span></span></span> is the <em>previous</em> rank of
+        <code>p</code>, <code>p</code> is a node pointing to <code>q</code>, and</p>
     <p class="has-line-data" data-line-start="163" data-line-end="164">(3) <span class="math inline"><span
                 class="katex"><span class="katex-mathml"><math>
                         <semantics>
@@ -6372,7 +6415,7 @@
         <code>page embedding</code> file.</p>
     <h3 class="code-line" data-line-start=167 data-line-end=168><a id="Comments_167"></a>Comments</h3>
     <ol>
-        <li class="has-line-data" data-line-start="169" data-line-end="178">We will provide a bash script that will
+        <li class="has-line-data" data-line-start="169" data-line-end="179">We will provide a bash script that will
             perform the following operations:
             <ul>
                 <li class="has-line-data" data-line-start="170" data-line-end="171">Mapper reads the
@@ -6382,42 +6425,44 @@
                     read from HDFS</li>
                 <li class="has-line-data" data-line-start="172" data-line-end="173">The <code>page embeddings</code> and
                     <code>v</code> file are read locally, the paths to which are provided as command line arguments</li>
-                <li class="has-line-data" data-line-start="173" data-line-end="174">Reducer computes new page ranks
+                <li class="has-line-data" data-line-start="173" data-line-end="174">Each page’s embedding is a vector of
+                    size <code>5</code>, and this size will be fixed for all testcases</li>
+                <li class="has-line-data" data-line-start="174" data-line-end="175">Reducer computes new page ranks
                     writes output to <code>v1</code></li>
-                <li class="has-line-data" data-line-start="174" data-line-end="175">If values of <code>v</code> and
+                <li class="has-line-data" data-line-start="175" data-line-end="176">If values of <code>v</code> and
                     <code>v1</code> are nearly similar (i.e, has reached convergence), exit</li>
-                <li class="has-line-data" data-line-start="175" data-line-end="178">Else:
+                <li class="has-line-data" data-line-start="176" data-line-end="179">Else:
                     <ul>
-                        <li class="has-line-data" data-line-start="176" data-line-end="177">Delete <code>v</code> and
+                        <li class="has-line-data" data-line-start="177" data-line-end="178">Delete <code>v</code> and
                             rename <code>v1</code> to <code>v</code></li>
-                        <li class="has-line-data" data-line-start="177" data-line-end="178">Redo from step 1</li>
+                        <li class="has-line-data" data-line-start="178" data-line-end="179">Redo from step 1</li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <li class="has-line-data" data-line-start="178" data-line-end="179">Reaching convergence means that the
+        <li class="has-line-data" data-line-start="179" data-line-end="180">Reaching convergence means that the
             difference between the updated page ranks and the previous for every page should be &lt;
             <code>CONVERGENCE_LIMIT</code></li>
-        <li class="has-line-data" data-line-start="179" data-line-end="180">The value of <code>CONVERGENCE_LIMIT</code>
+        <li class="has-line-data" data-line-start="180" data-line-end="181">The value of <code>CONVERGENCE_LIMIT</code>
             will be decided by the bash script - it will vary across different test cases</li>
-        <li class="has-line-data" data-line-start="180" data-line-end="182">All ranks are to be <strong>rounded off to 2
+        <li class="has-line-data" data-line-start="181" data-line-end="183">All ranks are to be <strong>rounded off to 2
                 decimal places</strong>. The <strong>rounding off should only be done while printing to
                 <code>STDOUT</code></strong> and not during computation.</li>
     </ol>
-    <h3 class="code-line" data-line-start=182 data-line-end=183><a id="Input_Format_182"></a>Input Format</h3>
-    <p class="has-line-data" data-line-start="184" data-line-end="185">The mapper will receive two command line
+    <h3 class="code-line" data-line-start=183 data-line-end=184><a id="Input_Format_183"></a>Input Format</h3>
+    <p class="has-line-data" data-line-start="185" data-line-end="186">The mapper will receive two command line
         arguments, the absolute path to the <code>v</code> file and the absolute path to the <code>page embedding</code>
         file. The input to the mapper is the <code>adjacency list</code> generated from the previous task.</p>
-    <h3 class="code-line" data-line-start=186 data-line-end=187><a id="Output_Format_186"></a>Output Format</h3>
-    <p class="has-line-data" data-line-start="188" data-line-end="189">For each page in the network, display the page’s
+    <h3 class="code-line" data-line-start=187 data-line-end=188><a id="Output_Format_187"></a>Output Format</h3>
+    <p class="has-line-data" data-line-start="189" data-line-end="190">For each page in the network, display the page’s
         ID along with its updated page rank on a single line. The values are comma separated and newline delimited. The
         output should be sorted in <strong>lexicographical</strong> order of <code>node</code>.</p>
-    <pre><code class="has-line-data" data-line-start="191" data-line-end="193" class="language-txt">node,pagerank
+    <pre><code class="has-line-data" data-line-start="192" data-line-end="194" class="language-txt">node,pagerank
 </code></pre>
-    <h4 class="code-line" data-line-start=194 data-line-end=195><a id="Example_194"></a>Example</h4>
-    <p class="has-line-data" data-line-start="196" data-line-end="197">Consider the following to be the input
+    <h4 class="code-line" data-line-start=195 data-line-end=196><a id="Example_195"></a>Example</h4>
+    <p class="has-line-data" data-line-start="197" data-line-end="198">Consider the following to be the input
         <code>page embeddings</code> for the provided sample network with 4 pages.</p>
-    <pre><code class="has-line-data" data-line-start="199" data-line-end="230" class="language-json">{
+    <pre><code class="has-line-data" data-line-start="200" data-line-end="231" class="language-json">{
     "<span class="hljs-attribute">1</span>": <span class="hljs-value">[
         <span class="hljs-number">0.032086015</span>,
         <span class="hljs-number">0.108658746</span>,
@@ -6448,21 +6493,21 @@
     ]
 </span>}
 </code></pre>
-    <p class="has-line-data" data-line-start="231" data-line-end="232">Attached below are the <strong>initial</strong>
+    <p class="has-line-data" data-line-start="232" data-line-end="233">Attached below are the <strong>initial</strong>
         <code>page ranks</code> for the provided network which have been generated from Task 1</p>
-    <pre><code class="has-line-data" data-line-start="234" data-line-end="239" class="language-txt">1,1
+    <pre><code class="has-line-data" data-line-start="235" data-line-end="240" class="language-txt">1,1
 2,1
 3,1
 4,1
 </code></pre>
-    <p class="has-line-data" data-line-start="240" data-line-end="241">Here is the <code>adjacency list</code> generated
+    <p class="has-line-data" data-line-start="241" data-line-end="242">Here is the <code>adjacency list</code> generated
         from the previous Task as well</p>
-    <pre><code class="has-line-data" data-line-start="243" data-line-end="248" class="language-txt">1   [2, 3, 4]
+    <pre><code class="has-line-data" data-line-start="244" data-line-end="249" class="language-txt">1   [2, 3, 4]
 2   [3, 4]
 3   [1]
 4   [3, 1]
 </code></pre>
-    <p class="has-line-data" data-line-start="249" data-line-end="250">The above <code>adjacency list</code> can be
+    <p class="has-line-data" data-line-start="250" data-line-end="251">The above <code>adjacency list</code> can be
         converted to the following matrix <code>M</code> where <code>M[i][j]</code> stores the initial contribution of
         page <code>i</code> to page <code>j</code> <strong>before the similarity scores have been multiplied</strong>.
     </p>
@@ -6507,7 +6552,7 @@
             </tr>
         </tbody>
     </table>
-    <p class="has-line-data" data-line-start="258" data-line-end="259">As mentioned in equation <code>3</code>, the
+    <p class="has-line-data" data-line-start="259" data-line-end="260">As mentioned in equation <code>3</code>, the
         expected similarity matrix <code>S</code> will look like this, where <code>S[i][j]</code> is the similarity
         between pages <code>i</code> and <code>j</code> using the vectors obtained from the <code>page embedding</code>
         file.</p>
@@ -6552,7 +6597,7 @@
             </tr>
         </tbody>
     </table>
-    <p class="has-line-data" data-line-start="267" data-line-end="268">Further, we can obtain the final contribution
+    <p class="has-line-data" data-line-start="268" data-line-end="269">Further, we can obtain the final contribution
         matrix <code>C</code> where <code>C[i][j]</code> contains the contribution <code>M[i][j]</code> multiplied by
         <code>S[i][j]</code>.</p>
     <table class="table table-striped table-bordered">
@@ -6596,34 +6641,34 @@
             </tr>
         </tbody>
     </table>
-    <p class="has-line-data" data-line-start="277" data-line-end="278">Replacing the values of <code>p</code> and
+    <p class="has-line-data" data-line-start="278" data-line-end="279">Replacing the values of <code>p</code> and
         <code>q</code> as as <code>page 1</code> and <code>page 2</code> respectively in the equation <code>2</code>, we
         obtain the initial contribution of <code>page 1</code> to <code>page 2</code> as the following:</p>
-    <p class="has-line-data" data-line-start="279" data-line-end="282">Initial page rank of <code>page 1</code>: 1<br>
+    <p class="has-line-data" data-line-start="280" data-line-end="283">Initial page rank of <code>page 1</code>: 1<br>
         Number of outgoing links from <code>page 1</code>: 3<br>
         Initial contribution = 1/3 = 0.33</p>
-    <p class="has-line-data" data-line-start="283" data-line-end="284">Multiplying the initial contribution of
+    <p class="has-line-data" data-line-start="284" data-line-end="285">Multiplying the initial contribution of
         <code>page 1</code> to <code>page 2</code> with the similarity score between the two pages obtained from matrix
         <code>S</code>, we get the complete contribution of <code>page 1</code> to <code>page 2</code> as the following:
     </p>
-    <p class="has-line-data" data-line-start="285" data-line-end="288">Initial contribution = 1/3 = 0.33<br>
+    <p class="has-line-data" data-line-start="286" data-line-end="289">Initial contribution = 1/3 = 0.33<br>
         Similarity between <code>page 1</code> and <code>page 2</code> = 0.95<br>
         Complete contribution = 0.3135</p>
-    <p class="has-line-data" data-line-start="289" data-line-end="290">The above process can be repeated to generate the
+    <p class="has-line-data" data-line-start="290" data-line-end="291">The above process can be repeated to generate the
         values in all the cells of the matrices <code>M</code>, <code>S</code> and <code>N</code>.</p>
-    <p class="has-line-data" data-line-start="291" data-line-end="292">Hence, the final page rank of <code>page 1</code>
+    <p class="has-line-data" data-line-start="292" data-line-end="293">Hence, the final page rank of <code>page 1</code>
         is given by equation <code>1</code> where,</p>
-    <p class="has-line-data" data-line-start="293" data-line-end="294">New page rank of <code>page 1</code> after
+    <p class="has-line-data" data-line-start="294" data-line-end="295">New page rank of <code>page 1</code> after
         <strong>one iteration</strong> = 0.15 + 0.85 x (contribution of 3 + contribution of 4) = 0.15 + 0.85 x (0.96 +
         0.49) = 1.3825</p>
-    <p class="has-line-data" data-line-start="295" data-line-end="296">The updated page ranks are calculated for all
+    <p class="has-line-data" data-line-start="296" data-line-end="297">The updated page ranks are calculated for all
         pages to obtain the following result in the <code>v1</code> file.</p>
-    <pre><code class="has-line-data" data-line-start="298" data-line-end="303" class="language-txt">1,1.38
+    <pre><code class="has-line-data" data-line-start="299" data-line-end="304" class="language-txt">1,1.38
 2,0.42
 3,1.23
 4,0.82
 </code></pre>
-    <p class="has-line-data" data-line-start="304" data-line-end="305">The above steps are repeated until convergence.
+    <p class="has-line-data" data-line-start="305" data-line-end="306">The above steps are repeated until convergence
     </p>
 </body>
 
