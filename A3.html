@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>UE19CS322 Big Data Assignments</title>
+    <title>UE19CS322 Big Data Assignment 3</title>
     <style>
         @charset "UTF-8";
         @import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css';
@@ -5610,71 +5610,363 @@
 </head>
 
 <body id="preview">
-    <h1 class="code-line" data-line-start=0 data-line-end=1><a id="UE19CS322_Big_Data_Assignments_0"></a>UE19CS322 Big
-        Data Assignments</h1>
-    <p class="has-line-data" data-line-start="2" data-line-end="3">Welcome to the UE19CS322 Big Data course at PES
-        University</p>
-    <p class="has-line-data" data-line-start="4" data-line-end="5">Here you will be able to view all the assignments as
-        well as helpful links to setup all the dependencies. Hope you all enjoy working on the assignments as much as we
-        have enjoyed creating them for you!</p>
-    <p class="has-line-data" data-line-start="6" data-line-end="7">Do remember to visit this page frequently to view
-        updated changelogs and assignments.</p>
-    <h2 class="code-line" data-line-start=8 data-line-end=9><a id="Changelog_8"></a>Changelog</h2>
-    <pre><code class="has-line-data" data-line-start="10" data-line-end="13">09-10-21: Assignment 2 is ready!
-            Deadline for Assignment 2: 23rd October, 11:59 PM
-            Beta Testing Phase: 16th October and 18th October, 10:00 AM to 10:00 PM
-            Submission Phase: 20th October to 23rd October
-
-24-09-21:   Assignment 0 & 1 submissions have concluded
-02-09-21:   Assignment 0 and 1 are LIVE! 
-26-08-21:   Assignment 1 is ready!
-24-08-21:   Assignment 0 is ready!
+    <h1 class="code-line" data-line-start=0 data-line-end=1><a id="UE19CS322_Big_Data_Assignment_3_0"></a>UE19CS322 Big
+        Data Assignment 3</h1>
+    <h1 class="code-line" data-line-start=1 data-line-end=2><a
+            id="Analysis_of_Earth_Surface_Temperature_using_Spark_1"></a>Analysis of Earth Surface Temperature using
+        Spark</h1>
+    <p class="has-line-data" data-line-start="3" data-line-end="4">This is the third assignment for the UE19CS322 Big
+        Data Course at PES University. The assignment consists of 2 tasks and focuses on using Spark and manipulating
+        dataframes to analyse and obtain insights from Earth’s surface temperature readings.</p>
+    <p class="has-line-data" data-line-start="5" data-line-end="6">The files required for the assignment can be found <a
+            href="https://drive.google.com/drive/folders/1VjATdLE6SmVftuQvx7wBv1ASSwxzr0kz?usp=sharing">here</a>.</p>
+    <h1 class="code-line" data-line-start=7 data-line-end=8><a id="Assignment_Objectives_and_Outcomes_7"></a>Assignment
+        Objectives and Outcomes</h1>
+    <ol>
+        <li class="has-line-data" data-line-start="8" data-line-end="9">This assignment will help students get familiar
+            with Spark and DataFrames</li>
+        <li class="has-line-data" data-line-start="9" data-line-end="11">At the end of this assignment, the student will
+            be able to write and debug code to work with DataFrames and manipulate them using Spark</li>
+    </ol>
+    <h1 class="code-line" data-line-start=11 data-line-end=12><a id="Ethical_practices_11"></a>Ethical practices</h1>
+    <p class="has-line-data" data-line-start="12" data-line-end="13">Please submit original code only. You can discuss
+        your approach with your friends but you must write original code. All solutions must be submitted through the
+        portal. <strong>We will perform a plagiarism check on the code and you will be penalised if your code is found
+            to be plagiarised</strong>.</p>
+    <h1 class="code-line" data-line-start=14 data-line-end=15><a id="The_Dataset_14"></a>The Dataset</h1>
+    <p class="has-line-data" data-line-start="16" data-line-end="17">The dataset consists of readings of the Earth’s
+        surface temperatures and was compiled and put together by <a href="http://berkeleyearth.org/data/">Berkeley
+            Earth</a>, an organization which is focused on environmental data science and records data on Earth’s
+        climate.</p>
+    <p class="has-line-data" data-line-start="18" data-line-end="19">There are <strong>2 dataframes</strong>, and you
+        will be working with the following attributes in each of them respectively.</p>
+    <h3 class="code-line" data-line-start=20 data-line-end=21><a id="Citycsv_20"></a>City.csv</h3>
+    <p class="has-line-data" data-line-start="22" data-line-end="23">This DataFrame contains <strong>surface temperature
+            readings captured everyday for every city</strong> in the world from 1750 to present.</p>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>dt</td>
+                <td>String</td>
+                <td>Date of the Record</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>String</td>
+                <td>Name of the city</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>String</td>
+                <td>Name of the country</td>
+            </tr>
+            <tr>
+                <td>AverageTemperature</td>
+                <td>Float</td>
+                <td>Average Temperature of the city on that Date</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="code-line" data-line-start=31 data-line-end=32><a id="Globalcsv_31"></a>Global.csv</h3>
+    <p class="has-line-data" data-line-start="33" data-line-end="34">This DataFrame contains <strong>worldwide surface
+            temperature</strong> readings captured everyday from 1750 to present.</p>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>dt</td>
+                <td>String</td>
+                <td>Date of the Record</td>
+            </tr>
+            <tr>
+                <td>LandAverageTemperature</td>
+                <td>Float</td>
+                <td>Global Land Average Temperature on that Date</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 class="code-line" data-line-start=40 data-line-end=41><a
+            id="SoftwareLanguages_to_be_used_40"></a>Software/Languages to be used:</h1>
+    <ol>
+        <li class="has-line-data" data-line-start="41" data-line-end="42">Python <code>3.8.x</code></li>
+        <li class="has-line-data" data-line-start="42" data-line-end="44">Spark <code>v3.1.2</code> only</li>
+    </ol>
+    <h1 class="code-line" data-line-start=44 data-line-end=45><a id="Marks_44"></a>Marks</h1>
+    <p class="has-line-data" data-line-start="45" data-line-end="48">Task 1: 2 marks<br>
+        Task 2: 2 marks<br>
+        <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSecvOf85Lld8KePDfXVoZfIKCuBV5UAELuzn0u1dhd1AuYtFg/viewform?usp=sf_link">Report</a>:
+        1 mark
+    </p>
+    <h1 class="code-line" data-line-start=49 data-line-end=50><a id="Tasks_Overview_49"></a>Tasks Overview:</h1>
+    <ol>
+        <li class="has-line-data" data-line-start="50" data-line-end="51">Create <code>task1.py</code> and
+            <code>task2.py</code> for Task 1 and Task 2 respectively</li>
+        <li class="has-line-data" data-line-start="51" data-line-end="52">Run your code on the sample dataset until you
+            get the right answer</li>
+        <li class="has-line-data" data-line-start="52" data-line-end="53">Submit the files to the portal</li>
+        <li class="has-line-data" data-line-start="53" data-line-end="55">Submit one page report based on the template
+            and answer the questions on the report</li>
+    </ol>
+    <h1 class="code-line" data-line-start=55 data-line-end=56><a id="Submission_Link_55"></a>Submission Link</h1>
+    <p class="has-line-data" data-line-start="56" data-line-end="57"><a href="http://34.136.179.213:8080/">Portal for
+            Big Data Assignment Submissions</a></p>
+    <h1 class="code-line" data-line-start=58 data-line-end=59><a id="Submission_Deadline_58"></a>Submission Deadline
+    </h1>
+    <p class="has-line-data" data-line-start="59" data-line-end="60">8th November, 11:59 PM</p>
+    <h1 class="code-line" data-line-start=61 data-line-end=62><a id="Submission_Guidelines_61"></a>Submission Guidelines
+    </h1>
+    <p class="has-line-data" data-line-start="62" data-line-end="63">You will need to make the following changes to your
+        <code>task1.py</code> and <code>task2.py</code> scripts to run them on the portal</p>
+    <ol>
+        <li class="has-line-data" data-line-start="64" data-line-end="68">Make sure to always <strong>fetch</strong> the
+            available <code>Spark Context</code> instead of creating a new one. This will prevent any errors while
+            attempting to create a new <code>Spark Context</code> to connect to the Spark Cluster.
+            <pre><code class="has-line-data" data-line-start="66" data-line-end="68" class="language-Python">spark_context = SparkContext.getOrCreate()
 </code></pre>
-    <h2 class="code-line" data-line-start=14 data-line-end=15><a id="Current_Assignments_14"></a>Current Assignments
-    </h2>
-    <ol>
-        <li class="has-line-data" data-line-start="16" data-line-end="17"><a href="A0.html">Assignment 0: Word Count</a>
         </li>
-        <li class="has-line-data" data-line-start="17" data-line-end="19"><a href="A1.html">Assignment 1: Analysis of US
-                Road Accident Data</a></li>
-        <li class="has-line-data" data-line-start="17" data-line-end="19"><a href="A2.html">Assignment 2: Implementation
-                of Page Rank Algorithm with
-                Embeddings for Wikipedia</a></li>
-        <li class="has-line-data" data-line-start="17" data-line-end="19"><a href="A3.html">Assignment 3: Analysis of
-                Earth Surface Temperature using Spark</a></li>
-    </ol>
-    <h2 class="code-line" data-line-start=19 data-line-end=20><a id="Portal_Links_19"></a>Portal Links</h2>
-    <ol>
-        <li class="has-line-data" data-line-start="21" data-line-end="22"><a
-                href="http://34.133.239.238:5000/">Assignment 0</a></li>
-        <li class="has-line-data" data-line-start="22" data-line-end="23"><a
-                href="http://34.136.179.213:8080/">Assignment Portal</a></li>
-    </ol>
-    <h2 class="code-line" data-line-start=25 data-line-end=26><a id="Helpful_Links_25"></a>Helpful Links</h2>
-    <ol>
-        <li class="has-line-data" data-line-start="27" data-line-end="28">
-            <p class="has-line-data" data-line-start="27" data-line-end="28"><a href="hadoop.html">How to install
-                    Hadoop?</a></p>
-        </li>
-        <li class="has-line-data" data-line-start="28" data-line-end="29">
-            <p class="has-line-data" data-line-start="28" data-line-end="29"><a href="spark.html">How to install
-                    Spark?</a></p>
-        </li>
-        <li class="has-line-data" data-line-start="29" data-line-end="30">
-            <p class="has-line-data" data-line-start="29" data-line-end="30"><a href="readme.html">How to submit an
-                    Assignment?</a></p>
-        </li>
-        <li class="has-line-data" data-line-start="29" data-line-end="30">
-            <p class="has-line-data" data-line-start="29" data-line-end="30"><a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSecvOf85Lld8KePDfXVoZfIKCuBV5UAELuzn0u1dhd1AuYtFg/viewform?usp=sf_link">Google
-                    Form for Reports</a></p>
-        </li>
-        <li class="has-line-data" data-line-start="30" data-line-end="33">
-            <p class="has-line-data" data-line-start="30" data-line-end="31"><a href="https://bit.ly/ue19cs322">Google
-                    Drive Folder for Assignments</a></p>
-            <pre><code>                 Made with ❤️ by the Big Data TA Team consisting of Aditeya, Vishesh, Ansh and Pavan</code></pre>
+        <li class="has-line-data" data-line-start="68" data-line-end="73">Convert line breaks in DOS format to Unix
+            format (<strong>this is necessary if you are coding on Windows</strong> - your code will not run on our
+            portal otherwise)
+            <pre><code class="has-line-data" data-line-start="70" data-line-end="72">dos2unix task1.py task2.py
+</code></pre>
         </li>
     </ol>
+    <h1 class="code-line" data-line-start=73 data-line-end=74><a id="Task_Specifications_73"></a>Task Specifications
+    </h1>
+    <p class="has-line-data" data-line-start="75" data-line-end="76">The following sample splits <strong>(containing
+            only the required columns for both Tasks)</strong> will be used to explain the examples for each Task</p>
+    <h3 class="code-line" data-line-start=77 data-line-end=78><a id="Citycsv_77"></a>City.csv</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>dt</th>
+                <th>AverageTemperature</th>
+                <th>City</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1876-02-01</td>
+                <td>20</td>
+                <td>Bangalore</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1862-04-01</td>
+                <td>32</td>
+                <td>Bangalore</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1876-02-01</td>
+                <td>28</td>
+                <td>Indore</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1862-04-01</td>
+                <td>34</td>
+                <td>Kolkata</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1856-01-01</td>
+                <td>32</td>
+                <td>Kolkata</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1856-01-01</td>
+                <td>33</td>
+                <td>Delhi</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>1876-02-01</td>
+                <td>27</td>
+                <td>Frankfurt</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>1862-04-01</td>
+                <td>29</td>
+                <td>Frankfurt</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>1856-01-01</td>
+                <td>26</td>
+                <td>Frankfurt</td>
+                <td>Germany</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="code-line" data-line-start=90 data-line-end=91><a id="Globalcsv_90"></a>Global.csv</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>dt</th>
+                <th>LandAverageTemperature</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1876-02-01</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>1862-04-01</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>1856-01-01</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 class="code-line" data-line-start=97 data-line-end=98><a id="Task_1_97"></a>Task 1</h2>
+    <h3 class="code-line" data-line-start=99 data-line-end=100><a id="Problem_Statement_99"></a>Problem Statement</h3>
+    <p class="has-line-data" data-line-start="101" data-line-end="102">Find the number of times where a city’s average
+        temperature on a day turned out to be higher than the city’s average temperature throughout the dataset for a
+        given country.</p>
+    <h3 class="code-line" data-line-start=103 data-line-end=104><a id="Description_103"></a>Description</h3>
+    <p class="has-line-data" data-line-start="105" data-line-end="106">Use the <code>city.csv</code> DataFrame to find
+        the number of times a city’s average temperature turned out to be higher than the city’s overall average
+        temperature for a given <code>country</code> and display each city along with its count on a newline.</p>
+    <h3 class="code-line" data-line-start=107 data-line-end=108><a id="Comments_107"></a>Comments</h3>
+    <ol>
+        <li class="has-line-data" data-line-start="109" data-line-end="110">The <code>country</code> and the path to the
+            <code>city.csv</code> DataFrame will be provided as the two command line arguments for the Task.</li>
+        <li class="has-line-data" data-line-start="110" data-line-end="111">You are <em>expected</em> to use as many
+            Spark transformations as possible without using custom code snippets (loops and data structures to
+            manipulate data) since these will speed up your implementation</li>
+        <li class="has-line-data" data-line-start="111" data-line-end="113"><strong>Important</strong>: Never load the
+            entire dataset into your memory!</li>
+    </ol>
+    <h3 class="code-line" data-line-start=113 data-line-end=114><a id="Input_Format_113"></a>Input Format</h3>
+    <p class="has-line-data" data-line-start="115" data-line-end="117">The input to the Task consists of two command
+        line arguments in the following order:<br>
+        <code>country</code> <code>path_to_city.csv</code>
+    </p>
+    <h3 class="code-line" data-line-start=118 data-line-end=119><a id="Output_Format_118"></a>Output Format</h3>
+    <p class="has-line-data" data-line-start="120" data-line-end="121">Display each city in that <code>country</code>
+        with its corresponding count. The values are <code>\t</code> separated and newline delimited. Do not print the
+        city if it does not have any instances where the required condition has been satisfied.</p>
+    <h4 class="code-line" data-line-start=122 data-line-end=123><a id="Example_122"></a>Example</h4>
+    <p class="has-line-data" data-line-start="124" data-line-end="125">Assuming the value of the command line argument
+        <code>country</code> to be <strong>India</strong>, we obtain the average temperatures of each city in the given
+        country as <code>26</code> for Bangalore, <code>33</code> for Kolkata, <code>28</code> for Indore, and
+        <code>33</code> for Delhi.</p>
+    <p class="has-line-data" data-line-start="126" data-line-end="127">There are exactly <strong>two examples</strong>
+        in the given split where the average temperature of a city in the given country on any given date is higher than
+        the city’s average temperature throughout the dataset:</p>
+    <ol>
+        <li class="has-line-data" data-line-start="127" data-line-end="128">Bangalore (occurred on 1862-04-01 with
+            average temperature of 32)</li>
+        <li class="has-line-data" data-line-start="128" data-line-end="130">Kolkata (occurred on 1981-11-01 with average
+            temperature of 34)</li>
+    </ol>
+    <p class="has-line-data" data-line-start="130" data-line-end="131">Hence, the output for this Task will be as
+        follows.</p>
+    <pre><code class="has-line-data" data-line-start="133" data-line-end="136" class="language-txt">Bangalore   1
+Kolkata 1
+</code></pre>
+    <h2 class="code-line" data-line-start=137 data-line-end=138><a id="Task_2_137"></a>Task 2</h2>
+    <h3 class="code-line" data-line-start=139 data-line-end=140><a id="Problem_Statement_139"></a>Problem Statement</h3>
+    <p class="has-line-data" data-line-start="141" data-line-end="142">Find the number of times where a country’s
+        maximum average temperature on a date turned out to be higher than the worldwide land average temperature on the
+        same date.</p>
+    <h3 class="code-line" data-line-start=143 data-line-end=144><a id="Description_143"></a>Description</h3>
+    <p class="has-line-data" data-line-start="145" data-line-end="146">Use the <code>city.csv</code> DataFrame to find
+        the maximum average temperature of a country on every date. Count the number of occurences where the country’s
+        maximum average temperature on a date turned out to be higher than the worldwide land average temperature on the
+        same date from the <code>global.csv</code> DataFrame and display the count for each country.</p>
+    <h3 class="code-line" data-line-start=147 data-line-end=148><a id="Comments_147"></a>Comments</h3>
+    <ol>
+        <li class="has-line-data" data-line-start="149" data-line-end="150">The maximum average temperature of a country
+            is defined as the maximum of the average temperatures of all cities in that country on that date.</li>
+        <li class="has-line-data" data-line-start="150" data-line-end="151">The path to the <code>city.csv</code> and
+            <code>global.csv</code> DataFrames will be provided as the two command line arguments for the Task.</li>
+        <li class="has-line-data" data-line-start="151" data-line-end="152">You are <em>expected</em> to use as many
+            Spark transformations as possible without using custom code snippets (loops and data structures to
+            manipulate data) since these will speed up your implementation</li>
+        <li class="has-line-data" data-line-start="152" data-line-end="154"><strong>Important</strong>: Never load the
+            entire datasets into your memory!</li>
+    </ol>
+    <h3 class="code-line" data-line-start=154 data-line-end=155><a id="Input_Format_154"></a>Input Format</h3>
+    <p class="has-line-data" data-line-start="156" data-line-end="158">The input to the Task consists of two command
+        line arguments in the following order:<br>
+        <code>path_to_city.csv</code> <code>path_to_global.csv</code>
+    </p>
+    <h3 class="code-line" data-line-start=159 data-line-end=160><a id="Output_Format_159"></a>Output Format</h3>
+    <p class="has-line-data" data-line-start="161" data-line-end="162">Display each country with its corresponding
+        count. The values are <code>\t</code> separated and newline delimited. Do not print the country if it does not
+        have any instances where the required condition has been satisfied.</p>
+    <h4 class="code-line" data-line-start=163 data-line-end=164><a id="Example_163"></a>Example</h4>
+    <p class="has-line-data" data-line-start="165" data-line-end="166">After computing the maximum average temperature
+        for each country on every date, we obtain the following</p>
+    <ol>
+        <li class="has-line-data" data-line-start="167" data-line-end="175">
+            <p class="has-line-data" data-line-start="167" data-line-end="168"><code>1876-02-01</code></p>
+            <ol>
+                <li class="has-line-data" data-line-start="168" data-line-end="169">India: <code>max(20, 28)</code> =
+                    <code>28</code></li>
+                <li class="has-line-data" data-line-start="169" data-line-end="171">Germany: <code>max(27)</code> =
+                    <code>27</code></li>
+            </ol>
+            <p class="has-line-data" data-line-start="171" data-line-end="172">Since both countries have their maximum
+                temperature greater than the land average temperature on this date (20), we increment the counter for
+                both these countries.</p>
+            <p class="has-line-data" data-line-start="173" data-line-end="174">Current count:
+                <code>India: 1, Germany: 1</code></p>
+        </li>
+        <li class="has-line-data" data-line-start="175" data-line-end="183">
+            <p class="has-line-data" data-line-start="175" data-line-end="176"><code>1862-04-01</code></p>
+            <ol>
+                <li class="has-line-data" data-line-start="176" data-line-end="177">India: <code>max(32, 34)</code> =
+                    <code>34</code></li>
+                <li class="has-line-data" data-line-start="177" data-line-end="179">Germany: <code>max(29)</code> =
+                    <code>29</code></li>
+            </ol>
+            <p class="has-line-data" data-line-start="179" data-line-end="180">Since only India’s maximum temperature is
+                greater than the land average temperature on this date(30), we increment only India’s count.</p>
+            <p class="has-line-data" data-line-start="181" data-line-end="182">Current count:
+                <code>India: 2, Germany: 1</code></p>
+        </li>
+        <li class="has-line-data" data-line-start="183" data-line-end="191">
+            <p class="has-line-data" data-line-start="183" data-line-end="184"><code>1856-01-01</code>:</p>
+            <ol>
+                <li class="has-line-data" data-line-start="184" data-line-end="185">India: <code>max(32, 33)</code> =
+                    <code>33</code></li>
+                <li class="has-line-data" data-line-start="185" data-line-end="187">Germany: <code>max(26)</code> =
+                    <code>26</code></li>
+            </ol>
+            <p class="has-line-data" data-line-start="187" data-line-end="188">Since both countries have their maximum
+                temperature greater than the land average temperature on this date (25), we increment the counter for
+                both these countries.</p>
+            <p class="has-line-data" data-line-start="189" data-line-end="190">Current count:
+                <code>India: 3, Germany: 2</code></p>
+        </li>
+    </ol>
+    <p class="has-line-data" data-line-start="191" data-line-end="192">Hence, the final output will be as follows.</p>
+    <pre><code class="has-line-data" data-line-start="194" data-line-end="197" class="language-txt">Germany 2
+India   3
+</code></pre>
 </body>
 
 </html>
